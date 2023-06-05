@@ -29,6 +29,6 @@ jobs:
       run: |
           mkdir ${{ github.workspace }}/SCAResolver
           ls ${{ github.workspace }}
-          curl -sL "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz" | gunzip | tar -x -C ${{ github.workspace }}/SCAResolver &&
+          wget "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz" | gunzip | tar -x -C ${{ github.workspace }}/SCAResolver &&
           chmod 0755 ${{ github.workspace }}/SCAResolver
-          s ${{ github.workspace }}/SCAResolver
+          ls ${{ github.workspace }}/SCAResolver
