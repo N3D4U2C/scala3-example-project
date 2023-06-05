@@ -32,4 +32,5 @@ jobs:
           tar -xvf ScaResolver-linux64.tar.gz -C ${{ github.workspace }}/SCAResolver
           ls -l .
           ls -l ${{ github.workspace }}/SCAResolver
-          ${{ github.workspace }}/ScaResolver -s ${{ github.workspace }} -n scala3-example-project-git -a SCA-Champions -u ${{ secrets.CHECKMARX_SCA_USERNAME }} -p ${{ secrets.CHECKMARX_SCA_PASSWORD }} --log-level 'Verbose'
+          pwd
+          ./ScaResolver -s ${{ github.workspace }} -n scala3-example-project-git -a SCA-Champions -u ${{ secrets.CHECKMARX_SCA_USERNAME }} -p ${{ secrets.CHECKMARX_SCA_PASSWORD }} --log-level 'Verbose'
