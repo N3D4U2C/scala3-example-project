@@ -29,5 +29,6 @@ jobs:
       run: |
           mkdir ${{ github.workspace }}/SCAResolver
           wget "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz"
-          tar -xvf ScaResolver-linux64.tar.gz
-          ls .
+          tar -xvf ScaResolver-linux64.tar.gz -C SCAResolver/
+          echo "direcotry : " ls -l .
+          ls -l /SCAResolver          
