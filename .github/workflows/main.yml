@@ -29,6 +29,7 @@ jobs:
       run: |
           mkdir ${{ github.workspace }}/SCAResolver
           ls ${{ github.workspace }}
-          wget "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz" && tar -xzf ScaResolver-linux64.tar.gz &&
+          wget "https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz"
+          tar -xzf ScaResolver-linux64.tar.gz
           chmod 0755 ${{ github.workspace }}/SCAResolver
           ls ${{ github.workspace }}/SCAResolver
