@@ -33,4 +33,4 @@ jobs:
           ls -l .
           ls -l ${{ github.workspace }}/SCAResolver
           pwd
-          ./ScaResolver -s ${{ github.workspace }} -n scala3-example-project-git -a SCA-Champions -u ${{ secrets.CHECKMARX_SCA_USERNAME }} -p ${{ secrets.CHECKMARX_SCA_PASSWORD }} --log-level 'Verbose'
+          ./SCAResolver/ScaResolver -s ${{ github.workspace }} -n scala3-example-project-git -a SCA-Champions -u ${{ secrets.CHECKMARX_SCA_USERNAME }} -p ${{ secrets.CHECKMARX_SCA_PASSWORD }} --log-level 'Verbose'
