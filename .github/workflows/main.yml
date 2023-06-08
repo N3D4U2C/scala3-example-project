@@ -26,17 +26,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
-      ##uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
-      uses: n3d4u2c/checkmarx-cxflow-github-action@master #modified to install sbt
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
+      #uses: n3d4u2c/checkmarx-cxflow-github-action@master #modified to install sbt
       with:
         project: scala3-example-project-git  # <-- Insert Checkmarx CxSCA Project Name
         sca_tenant: SCA-Champions  # <-- Insert Checkmarx CxSCA Tenant
         sca_username: ${{ secrets.CHECKMARX_SCA_USERNAME }} # To be stored in GitHub Secrets.
         sca_password: ${{ secrets.CHECKMARX_SCA_PASSWORD }} # To be stored in GitHub Secrets.
-        break_build: false
+        break_build: true
         error_merge: true
         scanners: sca
         bug_tracker: GITHUBPULL
-        params: --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.service=DEBUG --logging.level.org.apache.http.wire=TRACE --sca.enable-sca-resolver=true --sca.include-sources=false --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.pull_request.merge_commit_sha }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: --logging.level.org.springframework.web.client.RestTemplate=TRACE --logging.level.com.checkmarx.flow.service=DEBUG --logging.level.org.apache.http.wire=TRACE --sca.enable-sca-resolver=true --sca.include-sources=false --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.pull_request.number }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
         ##--sca.sca-resolver-add-parameters.log-level=Debug --sca.sca-resolver-add-parameters.e=*.ext1
         ##--sca.path-to-sca-resolver=/scar
