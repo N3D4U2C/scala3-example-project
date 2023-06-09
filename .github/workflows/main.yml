@@ -25,6 +25,26 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Set status check
+      uses: actions/github-script@v4
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const state = 'success'; // Replace with 'failure' if needed
+          const context = 'Status Check';
+          const description = 'This is a status check for the pull request.';
+          const sha = context.payload.pull_request.head.sha;
+            
+          github.repos.createCommitStatus({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            sha: sha,
+            state: state,
+            context: context,
+            description: description
+          });
     - name: Checkmarx CxFlow Action
       ##uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
       uses: n3d4u2c/checkmarx-cxflow-github-action@master #modified to install sbt
