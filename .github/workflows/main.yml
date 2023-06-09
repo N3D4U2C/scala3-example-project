@@ -32,7 +32,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const state = 'success'; // Replace with 'failure' if needed
+          const state = 'failure'; // Replace with 'failure' if needed
           const context = 'Status Check';
           const description = 'This is a status check for the pull request.';
           const sha = context.payload.pull_request.head.sha;
