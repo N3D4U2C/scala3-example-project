@@ -15,10 +15,10 @@ name: Checkmarx SCA Scan - CxFlow
 on:
   push:
     branches:
-      - main
-  #pull_request:
-  #  branches:
-  #    - main
+      - GHASCAResolver
+  pull_request:
+    branches:
+      - GHASCAResolver
 jobs:
   build:
     runs-on: ubuntu-latest
